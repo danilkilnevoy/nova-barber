@@ -1,0 +1,27 @@
+# Кэш и мусор
+**/node_modules/
+**/__pycache__/
+**/.DS_Store
+**/Thumbs.db
+
+# Git и документация
+.git/
+.gitignore
+.github/
+README.md
+*.md
+
+# Иде и настройки редакторов
+.vscode/
+.idea/
+
+# Секретные данные и переменные окружения
+.env
+.env.*
+config.local.js
+js/config.local.js
+
+# Docker-файлы (не нужны внутри образа)
+Dockerfile
+.dockerignore
+docker-compose.yml

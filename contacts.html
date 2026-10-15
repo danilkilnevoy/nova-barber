@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Контакты — NOVA BARBER</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="js/config.js"></script>
+  <script defer src="js/supabase.js"></script>
+  <script defer src="js/common.js"></script>
+  <script defer src="js/contacts.js"></script>
+</head>
+<body data-page="contacts">
+  <header class="site-header" id="siteHeader"></header>
+  <main class="page-section">
+    <div class="section-heading">
+      <p class="eyebrow">КОНТАКТЫ</p>
+      <h1>Заходи на свежую стрижку</h1>
+      <p>Будем рады видеть тебя в NOVA BARBER.</p>
+    </div>
+    <div class="contacts-layout">
+      <article class="contact-card">
+        <h2>Мы ждём тебя</h2>
+        <p class="contact-line"><span>Адрес</span><b id="contactAddress">Загрузка…</b></p>
+        <p class="contact-line"><span>Время работы</span><b id="contactHours">Загрузка…</b></p>
+        <p class="contact-line"><span>Телефон</span><b id="contactPhone">Загрузка…</b></p>
+        <div id="branchGrid" class="branch-list"></div>
+        <a class="pill-button" href="booking.html">Записаться</a>
+      </article>
+      <div class="map-placeholder" role="img" aria-label="Расположение NOVA BARBER">
+        <span class="map-pin">N</span>
+        <span class="map-caption">NOVA BARBER · НОВОСИБИРСК</span>
+      </div>
+    </div>
+  </main>
+  <footer id="siteFooter"></footer>
+</body>
+</html>

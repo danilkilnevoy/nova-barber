@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Вход — NOVA BARBER</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="js/config.js"></script>
+  <script defer src="js/supabase.js"></script>
+  <script defer src="js/common.js"></script>
+  <script defer src="js/auth.js"></script>
+</head>
+<body data-page="login">
+  <header class="site-header" id="siteHeader"></header>
+
+  <main class="login-section">
+    <div class="login-card">
+      <!-- Табы для переключения между входом и регистрацией -->
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-tab="login">Вход</button>
+        <button class="auth-tab" data-tab="register">Регистрация</button>
+      </div>
+
+      <!-- Форма ВХОДА -->
+      <form id="loginForm" class="auth-form">
+        <h1>Вход в личный кабинет</h1>
+        <p class="muted">Введите телефон и пароль</p>
+
+        <label>
+          Телефон
+          <input type="tel" id="loginPhone" placeholder="+7 (___) ___-__-__" required>
+        </label>
+
+        <label>
+          Пароль
+          <input type="password" id="loginPassword" placeholder="••••••" required>
+        </label>
+
+        <button type="submit" class="pill-button" style="width:100%; margin-top:12px;">
+          Войти
+        </button>
+
+        <p class="fine-print" id="loginError" style="color:#c0392b;"></p>
+      </form>
+
+      <!-- Форма РЕГИСТРАЦИИ -->
+      <form id="registerForm" class="auth-form" style="display:none;">
+        <h1>Регистрация</h1>
+        <p class="muted">Создайте аккаунт, чтобы копить бонусы</p>
+
+        <label>
+          Имя *
+          <input type="text" id="regFirstName" placeholder="Михаил" required>
+        </label>
+
+        <label>
+          Фамилия
+          <input type="text" id="regLastName" placeholder="Литвин">
+        </label>
+
+        <label>
+          Телефон *
+          <input type="tel" id="regPhone" placeholder="+7 (___) ___-__-__" required>
+        </label>
+
+        <label>
+          Email
+          <input type="email" id="regEmail" placeholder="hello@example.com">
+        </label>
+
+        <label>
+          Пароль * (мин. 6 символов)
+          <input type="password" id="regPassword" placeholder="••••••" required minlength="6">
+        </label>
+
+        <button type="submit" class="pill-button" style="width:100%; margin-top:12px;">
+          Зарегистрироваться
+        </button>
+
+        <p class="fine-print" id="registerError" style="color:#c0392b;"></p>
+      </form>
+    </div>
+  </main>
+
+  <footer id="siteFooter"></footer>
+</body>
+</html>

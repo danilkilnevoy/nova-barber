@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Онлайн-запись — NOVA BARBER</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="js/config.js"></script>
+  <script defer src="js/supabase.js"></script>
+  <script defer src="js/common.js"></script>
+  <script defer src="js/booking.js"></script>
+</head>
+<body data-page="booking">
+  <header class="site-header" id="siteHeader"></header>
+  <main class="page-section">
+    <div class="section-heading">
+      <p class="eyebrow">ОНЛАЙН-ЗАПИСЬ</p>
+      <h1>Запишись без звонка</h1>
+      <p>Выбери услугу, филиал, барбера и удобное время.</p>
+    </div>
+
+    <form class="booking-card" id="bookingForm">
+      <div class="booking-columns">
+        <div class="booking-step">
+          <span class="step-number">01</span>
+          <h3>Выбери услугу</h3>
+          <label for="serviceSelect">Услуга</label>
+          <select id="serviceSelect" required>
+            <option value="">Загрузка услуг…</option>
+          </select>
+          <div class="selected-service" id="selectedService">
+            Стоимость и длительность появятся здесь
+          </div>
+        </div>
+
+        <div class="booking-step">
+          <span class="step-number">02</span>
+          <h3>Выбери барбера</h3>
+          <label for="branchSelect">Филиал</label>
+          <select id="branchSelect" required>
+            <option value="">Загрузка филиалов…</option>
+          </select>
+          <label for="barberSelect">Барбер</label>
+          <select id="barberSelect" required>
+            <option value="">Сначала выбери филиал</option>
+          </select>
+        </div>
+
+        <div class="booking-step">
+          <span class="step-number">03</span>
+          <h3>Дата и время</h3>
+          <label for="bookingDate">Дата</label>
+          <input id="bookingDate" type="date" required>
+          <label for="bookingTime">Время</label>
+          <select id="bookingTime" required>
+            <option value="">Выбери время</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="booking-client">
+        <h3>Твои данные</h3>
+        <div class="client-fields">
+          <label for="firstName">Имя
+            <input id="firstName" autocomplete="given-name" required placeholder="Михаил">
+          </label>
+          <label for="lastName">Фамилия
+            <input id="lastName" autocomplete="family-name" placeholder="Литвин">
+          </label>
+          <label for="phone">Телефон
+            <input id="phone" type="tel" autocomplete="tel" required placeholder="+7 (___) ___-__-__">
+          </label>
+          <label for="email">Email
+            <input id="email" type="email" autocomplete="email" placeholder="hello@example.com">
+          </label>
+        </div>
+
+        <div class="booking-bottom">
+          <div class="summary" id="bookingSummary">
+            <span>Итого</span><b>Выбери услугу</b>
+          </div>
+          <button class="pill-button" type="submit">Подтвердить запись</button>
+        </div>
+        <p class="notice" id="bookingNotice" role="status"></p>
+        <p class="fine-print">Отправка записи зависит от доступности базы и настроек безопасности.</p>
+      </div>
+    </form>
+  </main>
+  <footer id="siteFooter"></footer>
+</body>
+</html>

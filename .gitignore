@@ -1,0 +1,15 @@
+# Секреты
+.env
+.env.*
+js/config.local.js
+*.key
+*.pem
+
+# ОС и IDE
+.DS_Store
+.vscode/
+.idea/
+
+# Логи и кэш
+*.log
+node_modules/

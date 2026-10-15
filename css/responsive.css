@@ -1,0 +1,45 @@
+@media (max-width: 650px) {
+  .site-header {
+    position: relative;
+    padding: 16px 20px;
+    gap: 12px;
+  }
+
+  .menu-toggle { display: inline-flex; margin-left: auto; }
+
+  .site-header nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 8px 0;
+  }
+
+  .site-header nav.open { display: flex; }
+  .site-header nav a { padding: 10px 4px; }
+  .header-account { padding: 10px 14px; font-size: .85rem; }
+
+  .page-section {
+    width: calc(100% - 36px);
+    padding: 44px 0;
+  }
+
+  .hero-panel { grid-template-columns: 1fr; }
+  .hero-photo { height: 300px; }
+  .feature-grid, .service-grid, .barber-grid { grid-template-columns: 1fr; }
+  .service-image { height: 230px; }
+  .barber-photo { height: 340px; }
+
+  .booking-card { padding: 20px; }
+  .client-fields { grid-template-columns: 1fr; }
+  .booking-bottom { align-items: stretch; flex-direction: column; }
+  .booking-bottom .pill-button { width: 100%; }
+
+  .contacts-layout { grid-template-columns: 1fr; }
+  .contact-card { padding: 22px; }
+  .contact-line { flex-direction: column; gap: 3px; }
+  .contact-line b { text-align: left; }
+
+  footer { flex-direction: column; align-items: flex-start; padding: 24px 20px; }
+}
