@@ -1,17 +1,25 @@
-# Базовый образ — nginx на Alpine (лёгкий, ~25 МБ)
-FROM nginx:alpine
+FROM node:20-alpine
 
-# Рабочая директория внутри контейнера
-WORKDIR /usr/share/nginx/html
+WORKDIR /app
 
-# Удаляем стандартные файлы nginx
-RUN rm -rf ./*
+# Копируем только package.json и package-lock.json для кеширования зависимостей
+COPY package*.json ./
 
-# Копируем файлы проекта в контейнер
+# Устанавливаем все зависимости (включая dev — нужны для сборки Tailwind)
+RUN npm ci
+
+# Копируем остальные файлы проекта
 COPY . .
 
-# Открываем порт 80 (стандартный для nginx)
-EXPOSE 80
+# Собираем Tailwind CSS
+RUN npm run build:css
 
-# При старте контейнера запускаем nginx на переднем плане
-CMD ["nginx", "-g", "daemon off;"]
+# Указываем переменные окружения
+ENV NODE_ENV=production
+ENV PORT=3000
+
+# Открываем порт
+EXPOSE 3000
+
+# Запускаем Node.js-сервер
+CMD ["node", "server.js"]

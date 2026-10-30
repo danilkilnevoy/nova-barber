@@ -4,9 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Барберы — NOVA BARBER</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/tailwind.css">
   <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script defer src="js/config.js"></script>
   <script defer src="js/supabase.js"></script>
@@ -14,15 +15,15 @@
   <script defer src="js/barbers.js"></script>
 </head>
 <body data-page="barbers">
-  <header class="site-header" id="siteHeader"></header>
-  <main class="page-section">
-    <div class="section-heading">
-      <p class="eyebrow">КОМАНДА</p>
-      <h1>Найди своего барбера</h1>
-      <p>Портфолио, специализация и рейтинг — до записи.</p>
+  <header id="siteHeader"></header>
+  <main class="w-[calc(100%-36px)] md:w-[min(1320px,calc(100%-64px))] mx-auto py-[44px] md:py-[70px]">
+    <div class="mb-[32px]">
+      <p class="text-[#756653] text-[0.75rem] font-extrabold tracking-[0.16em] uppercase mb-[14px]">КОМАНДА</p>
+      <h1 class="text-[clamp(2.5rem,5vw,4.8rem)] font-black leading-[1.15] tracking-[-0.035em] text-ink mb-[12px]">Найди своего барбера</h1>
+      <p class="text-muted text-[15px]">Портфолио, специализация и рейтинг — до записи.</p>
     </div>
-    <div class="barber-grid" id="barberGrid">
-      <p class="loading">Загружаем команду…</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[20px] md:gap-[24px] mt-[40px]" id="barberGrid">
+      <p class="text-muted py-[20px]">Загружаем команду…</p>
     </div>
   </main>
   <footer id="siteFooter"></footer>

@@ -21,7 +21,11 @@ README.md
 config.local.js
 js/config.local.js
 
-# Docker-файлы (не нужны внутри образа)
+# Docker-файлы
 Dockerfile
 .dockerignore
 docker-compose.yml
+
+# Временные бэкапы и скриншоты
+backup/
+screenshots/

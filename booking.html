@@ -4,9 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Онлайн-запись — NOVA BARBER</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/tailwind.css">
   <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script defer src="js/config.js"></script>
   <script defer src="js/supabase.js"></script>
@@ -14,78 +15,78 @@
   <script defer src="js/booking.js"></script>
 </head>
 <body data-page="booking">
-  <header class="site-header" id="siteHeader"></header>
-  <main class="page-section">
-    <div class="section-heading">
-      <p class="eyebrow">ОНЛАЙН-ЗАПИСЬ</p>
-      <h1>Запишись без звонка</h1>
-      <p>Выбери услугу, филиал, барбера и удобное время.</p>
+  <header id="siteHeader"></header>
+  <main class="w-[calc(100%-36px)] md:w-[min(1320px,calc(100%-64px))] mx-auto py-[44px] md:py-[70px]">
+    <div class="mb-[32px]">
+      <p class="text-[#756653] text-[0.75rem] font-extrabold tracking-[0.16em] uppercase mb-[14px]">ОНЛАЙН-ЗАПИСЬ</p>
+      <h1 class="text-[clamp(2.5rem,5vw,4.8rem)] font-black leading-[1.15] tracking-[-0.035em] text-ink mb-[12px]">Запишись без звонка</h1>
+      <p class="text-muted text-[15px]">Выбери услугу, филиал, барбера и удобное время.</p>
     </div>
 
-    <form class="booking-card" id="bookingForm">
-      <div class="booking-columns">
-        <div class="booking-step">
-          <span class="step-number">01</span>
-          <h3>Выбери услугу</h3>
-          <label for="serviceSelect">Услуга</label>
-          <select id="serviceSelect" required>
+    <form class="bg-paper border border-line rounded-[20px] p-[20px] md:p-[30px]" id="bookingForm">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-[26px]">
+        <div class="flex flex-col">
+          <span class="text-accent font-extrabold text-[0.95rem]">01</span>
+          <h3 class="text-[1.2rem] font-[750] my-[10px_20px]">Выбери услугу</h3>
+          <label class="grid gap-2 my-[14px] text-[#665b4e] text-[0.9rem]" for="serviceSelect">Услуга</label>
+          <select id="serviceSelect" required class="w-full min-h-[46px] px-[13px] py-[11px] border border-line rounded-[9px] bg-white text-ink">
             <option value="">Загрузка услуг…</option>
           </select>
-          <div class="selected-service" id="selectedService">
+          <div class="mt-[14px] text-muted text-[0.9rem]" id="selectedService">
             Стоимость и длительность появятся здесь
           </div>
         </div>
 
-        <div class="booking-step">
-          <span class="step-number">02</span>
-          <h3>Выбери барбера</h3>
-          <label for="branchSelect">Филиал</label>
-          <select id="branchSelect" required>
+        <div class="flex flex-col">
+          <span class="text-accent font-extrabold text-[0.95rem]">02</span>
+          <h3 class="text-[1.2rem] font-[750] my-[10px_20px]">Выбери барбера</h3>
+          <label class="grid gap-2 my-[14px] text-[#665b4e] text-[0.9rem]" for="branchSelect">Филиал</label>
+          <select id="branchSelect" required class="w-full min-h-[46px] px-[13px] py-[11px] border border-line rounded-[9px] bg-white text-ink">
             <option value="">Загрузка филиалов…</option>
           </select>
-          <label for="barberSelect">Барбер</label>
-          <select id="barberSelect" required>
+          <label class="grid gap-2 my-[14px] text-[#665b4e] text-[0.9rem]" for="barberSelect">Барбер</label>
+          <select id="barberSelect" required class="w-full min-h-[46px] px-[13px] py-[11px] border border-line rounded-[9px] bg-white text-ink">
             <option value="">Сначала выбери филиал</option>
           </select>
         </div>
 
-        <div class="booking-step">
-          <span class="step-number">03</span>
-          <h3>Дата и время</h3>
-          <label for="bookingDate">Дата</label>
-          <input id="bookingDate" type="date" required>
-          <label for="bookingTime">Время</label>
-          <select id="bookingTime" required>
+        <div class="flex flex-col">
+          <span class="text-accent font-extrabold text-[0.95rem]">03</span>
+          <h3 class="text-[1.2rem] font-[750] my-[10px_20px]">Дата и время</h3>
+          <label class="grid gap-2 my-[14px] text-[#665b4e] text-[0.9rem]" for="bookingDate">Дата</label>
+          <input id="bookingDate" type="date" required class="w-full min-h-[46px] px-[13px] py-[11px] border border-line rounded-[9px] bg-white text-ink">
+          <label class="grid gap-2 my-[14px] text-[#665b4e] text-[0.9rem]" for="bookingTime">Время</label>
+          <select id="bookingTime" required class="w-full min-h-[46px] px-[13px] py-[11px] border border-line rounded-[9px] bg-white text-ink">
             <option value="">Выбери время</option>
           </select>
         </div>
       </div>
 
-      <div class="booking-client">
-        <h3>Твои данные</h3>
-        <div class="client-fields">
-          <label for="firstName">Имя
-            <input id="firstName" autocomplete="given-name" required placeholder="Михаил">
+      <div class="border-t border-line mt-[30px] pt-[28px]">
+        <h3 class="text-[1.2rem] font-[750] mb-[20px]">Твои данные</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[16px]">
+          <label class="grid gap-2 my-[14px] text-[#665b4e] text-[0.9rem]" for="firstName">Имя
+            <input id="firstName" autocomplete="given-name" required placeholder="Михаил" class="w-full min-h-[46px] px-[13px] py-[11px] border border-line rounded-[9px] bg-white text-ink">
           </label>
-          <label for="lastName">Фамилия
-            <input id="lastName" autocomplete="family-name" placeholder="Литвин">
+          <label class="grid gap-2 my-[14px] text-[#665b4e] text-[0.9rem]" for="lastName">Фамилия
+            <input id="lastName" autocomplete="family-name" placeholder="Литвин" class="w-full min-h-[46px] px-[13px] py-[11px] border border-line rounded-[9px] bg-white text-ink">
           </label>
-          <label for="phone">Телефон
-            <input id="phone" type="tel" autocomplete="tel" required placeholder="+7 (___) ___-__-__">
+          <label class="grid gap-2 my-[14px] text-[#665b4e] text-[0.9rem]" for="phone">Телефон
+            <input id="phone" type="tel" autocomplete="tel" required placeholder="+7 (___) ___-__-__" class="w-full min-h-[46px] px-[13px] py-[11px] border border-line rounded-[9px] bg-white text-ink">
           </label>
-          <label for="email">Email
-            <input id="email" type="email" autocomplete="email" placeholder="hello@example.com">
+          <label class="grid gap-2 my-[14px] text-[#665b4e] text-[0.9rem]" for="email">Email
+            <input id="email" type="email" autocomplete="email" placeholder="hello@example.com" class="w-full min-h-[46px] px-[13px] py-[11px] border border-line rounded-[9px] bg-white text-ink">
           </label>
         </div>
 
-        <div class="booking-bottom">
-          <div class="summary" id="bookingSummary">
-            <span>Итого</span><b>Выбери услугу</b>
+        <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-[24px] mt-[24px]">
+          <div class="grid gap-1" id="bookingSummary">
+            <span class="text-muted text-[0.9rem]">Итого</span><b class="text-[1.3rem] font-bold text-ink">Выбери услугу</b>
           </div>
-          <button class="pill-button" type="submit">Подтвердить запись</button>
+          <button class="w-full md:w-auto inline-flex items-center justify-center rounded-full bg-ink text-white font-[650] border border-ink px-[23px] py-[13px] cursor-pointer transition-all duration-200 hover:-translate-y-[2px] hover:bg-[#39352f] disabled:opacity-60 disabled:cursor-wait disabled:translate-y-0" type="submit">Подтвердить запись</button>
         </div>
-        <p class="notice" id="bookingNotice" role="status"></p>
-        <p class="fine-print">Отправка записи зависит от доступности базы и настроек безопасности.</p>
+        <p class="text-[#73572f] mt-[16px]" id="bookingNotice" role="status"></p>
+        <p class="text-muted text-[0.83rem] mt-[16px]">Отправка записи зависит от доступности базы и настроек безопасности.</p>
       </div>
     </form>
   </main>

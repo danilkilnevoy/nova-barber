@@ -26,10 +26,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('contactPhone').textContent = first.phone || 'Не указан';
 
     grid.innerHTML = data.map(branch => `
-      <article class="branch-item">
-        <h3>${escapeText(branch.address || 'Филиал')}</h3>
-        <p>${escapeText(branch.work_hours || 'Время работы не указано')}</p>
-        <p>${escapeText(branch.phone || '')}</p>
+      <article class="border-t border-line py-[16px]">
+        <h3 class="text-[1.15rem] font-bold mb-[4px] text-ink">${escapeText(branch.address || 'Филиал')}</h3>
+        <p class="m-0 text-[0.9rem] text-muted">${escapeText(branch.work_hours || 'Время работы не указано')}</p>
+        <p class="m-0 text-[0.9rem] text-muted">${escapeText(branch.phone || '')}</p>
       </article>
     `).join('');
   } catch (error) {

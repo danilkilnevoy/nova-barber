@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #f3eee2;
+    --paper: #ffffff;
+    --ink: #171614;
+    --muted: #786f63;
+    --line: #d8cbb8;
+    --accent: #c5aa87;
+    --radius: 20px;
+    --page-width: 1320px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+  }
+
+  body {
+    background-color: #f3eee2;
+    color: #171614;
+    font-family: Inter, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button, input, select {
+    font: inherit;
+  }
+
+  button, a, select {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  h1, h2, h3, h4, p {
+    margin-top: 0;
+  }
+
+  h1, h2, h3 {
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4.8rem);
+    font-weight: 900;
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    font-weight: 800;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    font-weight: 750;
+  }
+
+  input, select {
+    width: 100%;
+    min-height: 46px;
+    padding: 11px 13px;
+    border: 1px solid #d8cbb8;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #171614;
+  }
+
+  input:focus, select:focus {
+    outline: 2px solid #c7ae8b;
+    outline-offset: 2px;
+  }
+}
+
+@media (max-width: 767px) {
+  #mainNav:not(.open) {
+    display: none !important;
+  }
+  #mainNav.open {
+    display: flex !important;
+  }
+}
+
+#bookingSummary > span {
+  color: #786f63;
+  font-size: 0.9rem;
+}
+
+#bookingSummary > b {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #171614;
+}
+
+.auth-tab.active {
+  color: #171614 !important;
+  border-bottom-color: #171614 !important;
+}

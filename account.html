@@ -4,9 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Личный кабинет — NOVA BARBER</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/tailwind.css">
   <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script defer src="js/config.js"></script>
   <script defer src="js/supabase.js"></script>
@@ -14,50 +15,50 @@
   <script defer src="js/account.js"></script>
 </head>
 <body data-page="account">
-  <header class="site-header" id="siteHeader"></header>
-  <main class="page-section account-section">
-    <div class="section-heading">
-      <p class="eyebrow">ЛИЧНЫЙ КАБИНЕТ</p>
-      <h1>Твои визиты и бонусы</h1>
-      <p id="accountGreeting">Войди, чтобы посмотреть данные профиля.</p>
+  <header id="siteHeader"></header>
+  <main class="w-[calc(100%-36px)] md:w-[min(1320px,calc(100%-64px))] mx-auto py-[44px] md:py-[70px]">
+    <div class="mb-[32px]">
+      <p class="text-[#756653] text-[0.75rem] font-extrabold tracking-[0.16em] uppercase mb-[14px]">ЛИЧНЫЙ КАБИНЕТ</p>
+      <h1 class="text-[clamp(2.5rem,5vw,4.8rem)] font-black leading-[1.15] tracking-[-0.035em] text-ink mb-[12px]">Твои визиты и бонусы</h1>
+      <p class="text-muted text-[15px]" id="accountGreeting">Войди, чтобы посмотреть данные профиля.</p>
     </div>
 
-    <div class="account-layout">
-      <aside class="profile-card">
-        <div class="avatar">N</div>
-        <h2 id="profileName">Гость</h2>
-        <p id="profileEmail">Вход не выполнен</p>
-        <a class="pill-button" href="login.html">Войти / регистрация</a>
+    <div class="grid grid-cols-1 md:grid-cols-[300px_1fr] gap-[24px]">
+      <aside class="bg-paper border border-line rounded-[20px] p-[26px] h-fit">
+        <div class="avatar w-[64px] h-[64px] rounded-full bg-bg flex items-center justify-center font-extrabold text-[1.4rem] mb-[16px]">N</div>
+        <h2 class="text-[1.3rem] font-bold mb-[4px]" id="profileName">Гость</h2>
+        <p class="text-muted text-[0.9rem] mb-[20px]" id="profileEmail">Вход не выполнен</p>
+        <a class="pill-button w-full inline-flex items-center justify-center rounded-full bg-ink text-white font-[650] border border-ink px-[23px] py-[13px] cursor-pointer transition-all duration-200 hover:-translate-y-[2px] hover:bg-[#39352f]" href="login.html">Войти / регистрация</a>
       </aside>
 
-      <div class="account-main">
-        <article class="account-panel">
-          <h2>Предстоящие визиты</h2>
-          <div id="upcomingVisits"><p class="muted">Войди, чтобы увидеть свои записи.</p></div>
+      <div class="grid gap-[20px]">
+        <article class="bg-paper border border-line rounded-[20px] p-[26px]">
+          <h2 class="text-[1.35rem] font-bold mb-[16px]">Предстоящие визиты</h2>
+          <div id="upcomingVisits"><p class="text-muted">Войди, чтобы увидеть свои записи.</p></div>
         </article>
-        <article class="account-panel">
-          <h2>История визитов</h2>
-          <div id="visitHistory"><p class="muted">История появится после входа.</p></div>
+        <article class="bg-paper border border-line rounded-[20px] p-[26px]">
+          <h2 class="text-[1.35rem] font-bold mb-[16px]">История визитов</h2>
+          <div id="visitHistory"><p class="text-muted">История появится после входа.</p></div>
         </article>
-        <article class="account-panel" id="personal">
-  <h2>Бонусы и личные данные</h2>
-  <div class="contact-line">
-    <span>Бонусный баланс</span>
-    <b id="bonusBalance">—</b>
-  </div>
-  <div class="contact-line">
-    <span>Телефон</span>
-    <b id="profilePhone">—</b>
-  </div>
-  <div class="contact-line">
-    <span>Email</span>
-    <b id="profileEmailInline">—</b>
-  </div>
-  <button class="outline-button" id="logoutBtn" type="button" style="margin-top:20px;">
-    Выйти
-  </button>
-</article>
-        <p class="notice" id="accountNotice" role="status"></p>
+        <article class="bg-paper border border-line rounded-[20px] p-[26px]" id="personal">
+          <h2 class="text-[1.35rem] font-bold mb-[16px]">Бонусы и личные данные</h2>
+          <div class="flex justify-between gap-[20px] border-b border-[#eee7dc] py-[12px]">
+            <span class="text-muted">Бонусный баланс</span>
+            <b class="text-right font-bold" id="bonusBalance">—</b>
+          </div>
+          <div class="flex justify-between gap-[20px] border-b border-[#eee7dc] py-[12px]">
+            <span class="text-muted">Телефон</span>
+            <b class="text-right font-bold" id="profilePhone">—</b>
+          </div>
+          <div class="flex justify-between gap-[20px] border-b border-[#eee7dc] py-[12px]">
+            <span class="text-muted">Email</span>
+            <b class="text-right font-bold" id="profileEmailInline">—</b>
+          </div>
+          <button class="mt-[20px] inline-flex items-center justify-center rounded-full bg-transparent text-ink border border-line px-[23px] py-[13px] cursor-pointer transition-all duration-200 hover:bg-[#ebe2d3]" id="logoutBtn" type="button">
+            Выйти
+          </button>
+        </article>
+        <p class="text-[#73572f] mt-[16px]" id="accountNotice" role="status"></p>
       </div>
     </div>
   </main>

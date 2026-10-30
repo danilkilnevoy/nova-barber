@@ -1,9 +1,9 @@
 (() => {
   const images = {
-    'илья козлов': 'images/barber-ilya.jpg',
-    'роман волков': 'images/barber-roman.jpg',
-    'алексей петров': 'images/barber-alexey.jpg',
-    'максим смирнов': 'images/barber-maxim.jpg'
+    'илья козлов': 'https://ktpufaywlfrhxdltnczr.supabase.co/storage/v1/object/public/images/barber-ilya.jpg',
+    'роман волков': 'https://ktpufaywlfrhxdltnczr.supabase.co/storage/v1/object/public/images/barber-roman.jpg',
+    'алексей петров': 'https://ktpufaywlfrhxdltnczr.supabase.co/storage/v1/object/public/images/barber-alexey.jpg',
+    'максим смирнов': 'https://ktpufaywlfrhxdltnczr.supabase.co/storage/v1/object/public/images/barber-maxim.jpg'
   };
 
   const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({
@@ -16,7 +16,7 @@
     if (!target) return;
 
     if (!window.novaDb) {
-      target.innerHTML = '<p class="empty">Нет подключения к базе данных.</p>';
+      target.innerHTML = '<p class="text-muted py-[20px]">Нет подключения к базе данных.</p>';
       return;
     }
 
@@ -29,7 +29,7 @@
       if (error) throw error;
 
       if (!data?.length) {
-        target.innerHTML = '<p class="empty">Барберы пока не добавлены.</p>';
+        target.innerHTML = '<p class="text-muted py-[20px]">Барберы пока не добавлены.</p>';
         return;
       }
 
@@ -40,21 +40,20 @@
         const photo = images[key] || barber.portfolio_url || '';
         const rating = Number(barber.rating || 0).toFixed(1);
 
-        // Обновленная структура карточки
         return `
-          <article class="barber-card">
-            <div class="barber-photo">
+          <article class="flex flex-col">
+            <div class="w-full aspect-[295/300] rounded-[12px] overflow-hidden bg-[#e2d7c6] mb-[16px]">
               ${photo
-                ? `<img src="${esc(photo)}" alt="${esc(name)}" loading="lazy">`
-                : '<div class="empty">Добавь фото мастера</div>'}
+                ? `<img class="w-full h-full object-cover block" src="${esc(photo)}" alt="${esc(name)}" loading="lazy">`
+                : '<div class="text-muted py-[20px] text-center">Добавь фото мастера</div>'}
             </div>
-            <div class="barber-content">
-              <div class="barber-header">
-                <span class="barber-name">${esc(name)}</span>
-                <span class="barber-rating">${rating}</span>
+            <div class="flex flex-col flex-grow p-0">
+              <div class="flex justify-between items-baseline mb-[4px]">
+                <span class="text-[1.1rem] font-bold text-ink">${esc(name)}</span>
+                <span class="text-[0.95rem] font-semibold text-ink flex items-center gap-1 before:content-['★'] before:text-ink before:text-[0.9rem]">${rating}</span>
               </div>
-              <span class="barber-specialty">${esc(barber.qualification || 'Барбер')}</span>
-              <a class="pill-button" href="booking.html?barber=${encodeURIComponent(barber.id)}">
+              <span class="text-muted text-[0.9rem] mb-[20px]">${esc(barber.qualification || 'Барбер')}</span>
+              <a class="w-full mt-auto inline-flex items-center justify-center rounded-full px-[20px] py-[12px] bg-ink text-white text-[0.9rem] font-semibold border-none cursor-pointer transition-all duration-200 hover:bg-[#39352f] hover:-translate-y-[2px]" href="booking.html?barber=${encodeURIComponent(barber.id)}">
                 Записаться
               </a>
             </div>
@@ -63,7 +62,7 @@
       }).join('');
     } catch (error) {
       console.error('Ошибка загрузки барберов:', error);
-      target.innerHTML = '<p class="empty">Не удалось загрузить команду. Проверь настройки Supabase и права SELECT.</p>';
+      target.innerHTML = '<p class="text-muted py-[20px]">Не удалось загрузить команду. Проверь настройки Supabase и права SELECT.</p>';
     }
   }
 

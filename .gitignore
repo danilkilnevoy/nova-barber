@@ -13,3 +13,7 @@ js/config.local.js
 # Логи и кэш
 *.log
 node_modules/
+
+# Временные бэкапы и скриншоты
+backup/
+screenshots/

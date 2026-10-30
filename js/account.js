@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   // Меняем кнопку "Войти" на "Записаться"
-  const profileBtn = document.querySelector('.profile-card .pill-button');
+  const profileBtn = document.querySelector('.profile-card .pill-button') || document.querySelector('.pill-button');
   if (profileBtn) {
     profileBtn.textContent = 'Записаться онлайн';
     profileBtn.href = 'booking.html';
@@ -72,8 +72,8 @@ async function loadVisits(clientId) {
   const historyEl = document.getElementById('visitHistory');
 
   if (!window.novaDb) {
-    upcomingEl.innerHTML = '<p class="empty">Нет подключения к базе данных.</p>';
-    historyEl.innerHTML = '<p class="empty">Нет подключения к базе данных.</p>';
+    upcomingEl.innerHTML = '<p class="text-muted py-[20px]">Нет подключения к базе данных.</p>';
+    historyEl.innerHTML = '<p class="text-muted py-[20px]">Нет подключения к базе данных.</p>';
     return;
   }
 
@@ -96,8 +96,8 @@ async function loadVisits(clientId) {
     if (error) throw error;
 
     if (!data || data.length === 0) {
-      upcomingEl.innerHTML = '<p class="muted">У вас пока нет записей. <a href="booking.html" style="text-decoration:underline;">Записаться</a></p>';
-      historyEl.innerHTML = '<p class="muted">История визитов пуста.</p>';
+      upcomingEl.innerHTML = '<p class="text-muted">У вас пока нет записей. <a href="booking.html" class="underline">Записаться</a></p>';
+      historyEl.innerHTML = '<p class="text-muted">История визитов пуста.</p>';
       return;
     }
 
@@ -117,7 +117,7 @@ async function loadVisits(clientId) {
 
     // Рендерим предстоящие (сортируем по возрастанию даты — ближайшие сверху)
     if (upcoming.length === 0) {
-      upcomingEl.innerHTML = '<p class="muted">Нет предстоящих визитов. <a href="booking.html" style="text-decoration:underline;">Записаться</a></p>';
+      upcomingEl.innerHTML = '<p class="text-muted">Нет предстоящих визитов. <a href="booking.html" class="underline">Записаться</a></p>';
     } else {
       upcoming.sort((a, b) => new Date(a.start_time) - new Date(b.start_time));
       upcomingEl.innerHTML = upcoming.map(renderVisit).join('');
@@ -125,15 +125,15 @@ async function loadVisits(clientId) {
 
     // Рендерим историю (уже отсортирована по убыванию)
     if (past.length === 0) {
-      historyEl.innerHTML = '<p class="muted">История визитов пуста.</p>';
+      historyEl.innerHTML = '<p class="text-muted">История визитов пуста.</p>';
     } else {
       historyEl.innerHTML = past.map(renderVisit).join('');
     }
 
   } catch (error) {
     console.error('Ошибка загрузки визитов:', error);
-    upcomingEl.innerHTML = '<p class="empty">Не удалось загрузить визиты.</p>';
-    historyEl.innerHTML = '<p class="empty">Не удалось загрузить историю.</p>';
+    upcomingEl.innerHTML = '<p class="text-muted py-[20px]">Не удалось загрузить визиты.</p>';
+    historyEl.innerHTML = '<p class="text-muted py-[20px]">Не удалось загрузить историю.</p>';
   }
 }
 
@@ -161,18 +161,18 @@ function renderVisit(booking) {
   const price = booking.total_price ? `${Number(booking.total_price).toFixed(0)} ₽` : '';
 
   // Цвет статуса
-  let statusClass = 'visit-status';
-  if (booking.status === 'Отменена') statusClass += ' status-cancelled';
-  else if (booking.status === 'Завершена') statusClass += ' status-done';
-  else statusClass += ' status-active';
+  let statusClass = 'text-[0.8rem] px-[12px] py-[4px] rounded-full font-semibold whitespace-nowrap';
+  if (booking.status === 'Отменена') statusClass += ' bg-[#fdecea] text-[#c0392b]';
+  else if (booking.status === 'Завершена') statusClass += ' bg-[#eaeaea] text-[#666]';
+  else statusClass += ' bg-[#e6f4ea] text-[#1e7e34]';
 
   return `
-    <div class="visit-item">
-      <div class="visit-header">
-        <b>${dateStr}, ${timeStr}</b>
+    <div class="py-[18px] border-b border-line last:border-b-0">
+      <div class="flex justify-between items-center gap-[12px] mb-[6px] flex-wrap">
+        <b class="text-[1rem] font-bold">${dateStr}, ${timeStr}</b>
         <span class="${statusClass}">${booking.status || 'Создана'}</span>
       </div>
-      <p class="muted">${serviceTitle} · ${barberName} ${price ? '· ' + price : ''}</p>
+      <p class="m-0 text-muted text-[0.92rem]">${serviceTitle} · ${barberName} ${price ? '· ' + price : ''}</p>
     </div>
   `;
 }
