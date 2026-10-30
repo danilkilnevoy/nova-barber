@@ -4,6 +4,12 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Закрываем API от индексации
+app.use('/api', (req, res, next) => {
+  res.set('X-Robots-Tag', 'noindex, nofollow');
+  next();
+});
+
 // Отдаём статику из корня проекта (HTML, CSS, JS, фото)
 app.use(express.static(path.join(__dirname)));
 
