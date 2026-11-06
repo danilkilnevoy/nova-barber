@@ -1,0 +1,30 @@
+services:
+  # Node.js-приложение
+  app:
+    build: ..    # Путь к корню проекта (где лежит Dockerfile)
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+    # Портов наружу НЕТ — доступен только внутри сети Docker
+    networks:
+      - nova-network
+
+  # nginx — единая точка входа
+  nginx:
+    image: nginx:alpine
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:80:80"
+      - "127.0.0.1:443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./certs:/etc/nginx/certs:ro
+    depends_on:
+      - app
+    networks:
+      - nova-network
+
+networks:
+  nova-network:
+    driver: bridge

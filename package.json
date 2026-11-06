@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "build:css": "tailwindcss -i ./src/input.css -o ./css/tailwind.css",
+    "build:css": "tailwindcss -i ./src/input.css -o ./css/tailwind.css --minify",
     "build:css:min": "tailwindcss -i ./src/input.css -o ./css/tailwind.css --minify",
     "watch:css": "tailwindcss -i ./src/input.css -o ./css/tailwind.css --watch"
   },
