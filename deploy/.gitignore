@@ -1,0 +1,14 @@
+# Сертификаты и ключи
+certs/
+
+# Файлы переменных окружения
+.env
+.env.local
+.env.*.local
+
+# Логи Docker
+*.log
+
+# Временные файлы
+.DS_Store
+Thumbs.db
