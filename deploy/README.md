@@ -6,7 +6,7 @@
 
 ## Аудит Lighthouse (ПЗ № 19)
 
-Полный отчёт аудита: [docs/audit/AUDIT.md](../docs/audit/AUDIT.md)
+Полный отчёт аудита: [docs/audit/README.md](../docs/audit/README.md)
 
 HTML-отчёты Lighthouse: [docs/audit/reports/](../docs/audit/reports/)
 
@@ -17,6 +17,6 @@ HTML-отчёты Lighthouse: [docs/audit/reports/](../docs/audit/reports/)
 - Best Practices: **100** на всех страницах
 - SEO: **100** на всех публичных страницах
 
-Core Web Vitals (главная, реальные взаимодействия): LCP = **0.58 s**, INP = **184 ms**, CLS = **0.065** — все три метрики в «зелёной» зоне.
+Core Web Vitals (главная, реальные взаимодействия): LCP = **0.58 с**, INP = **184 мс**, CLS = **0.065** — все три метрики в «зелёной» зоне.
 
 В рамках аудита исправлены 4 проблемы приоритета P1: контраст текста подвала, контраст номеров шагов на странице записи, порядок заголовков (`h3` → `h2`) и домен-заглушка `example.com` в `robots.txt` / `sitemap.xml`.
