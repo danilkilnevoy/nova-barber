@@ -3,4 +3,4 @@ Disallow: /account.html
 Disallow: /login.html
 Disallow: /api/
 
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://nova-barber.localhost/sitemap.xml

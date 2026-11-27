@@ -10,7 +10,7 @@ module.exports = {
         bg: '#f3eee2',
         paper: '#ffffff',
         ink: '#171614',
-        muted: '#786f63',
+        muted: '#6f6659',
         line: '#d8cbb8',
         accent: '#c5aa87',
       },

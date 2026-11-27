@@ -47,7 +47,7 @@
             <img class="absolute inset-0 w-full h-full object-cover z-10 transition-transform duration-400 group-hover:scale-105" src="${esc(photo)}" alt="${esc(service.title)}" loading="lazy">
             <div class="absolute inset-0 bg-gradient-to-b from-black/15 via-black/55 to-[#494949]/85 z-20 pointer-events-none" aria-hidden="true"></div>
             <div class="relative z-30 flex flex-col gap-1">
-              <h3 class="text-[1.15rem] font-bold text-white m-0 mb-[6px] leading-[1.2]">${esc(service.title)}</h3>
+              <h2 class="text-[1.15rem] font-bold text-white m-0 mb-[6px] leading-[1.2]">${esc(service.title)}</h2>
               <p class="text-[0.85rem] text-white/75 m-0">${service.duration_minutes} мин</p>
               <p class="text-[1.05rem] font-bold text-white mt-[2px] mb-[14px]">${Number(service.price).toFixed(0)} ₽</p>
               <a class="self-start inline-flex items-center justify-center rounded-full px-[24px] py-[10px] bg-white text-ink text-[0.85rem] font-semibold cursor-pointer transition-all duration-200 hover:-translate-y-[2px] hover:bg-[#e6e6e6]" href="booking.html?service=${service.id}">
