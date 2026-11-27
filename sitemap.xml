@@ -1,27 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://example.com/</loc>
+    <loc>https://nova-barber.localhost/</loc>
     <lastmod>2026-10-30</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://example.com/services.html</loc>
+    <loc>https://nova-barber.localhost/services.html</loc>
     <lastmod>2026-10-30</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://example.com/barbers.html</loc>
+    <loc>https://nova-barber.localhost/barbers.html</loc>
     <lastmod>2026-10-30</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://example.com/booking.html</loc>
+    <loc>https://nova-barber.localhost/booking.html</loc>
     <lastmod>2026-10-30</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://example.com/contacts.html</loc>
+    <loc>https://nova-barber.localhost/contacts.html</loc>
     <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
